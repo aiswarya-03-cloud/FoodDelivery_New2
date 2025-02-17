@@ -25,8 +25,12 @@ import { authUser } from "../../middlewares/authUser.js"
 
 const router = express.Router()
 
-router.route('/update').post(authUser, updateCart)
+// router.route('/update').post(authUser, updateCart)
+router.route('/update').post(updateCart)
+// router.post("/add-to-cart",addCourseToCart);
 router.route('/').get(authUser, getCart)
 router.route('/clear').post(authUser, clearCart)
 
 export default router
+
+

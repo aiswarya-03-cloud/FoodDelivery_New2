@@ -249,7 +249,13 @@ export const createMenuItem = async (req, res) => {
 //Get all menu items for a restaurant
 export const getMenuItems = async (req, res) => {
     try {
-        const menuItems = await Menu.find({restaurant: req.params.restaurantId})
+
+        const {restaurantId} = req.params;
+        console.log("restId...",restaurantId);
+        console.log("res--->", req.params.restaurantId)
+
+        const menuItems = await Menu.find({restaurant:req.params.restaurantId})
+        // const menuItems = await Menu.findById(restaurantId)
         res.status(201).json({success: true, message: 'All items fetched successfully', menuItems})
     } catch (error) {
         res.status(404).json({success: false, message: 'Items not found'})

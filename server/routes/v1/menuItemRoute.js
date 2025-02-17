@@ -33,7 +33,7 @@ import { authAdmin } from '../../middlewares/authAdmin.js'
 const router = express.Router()
 
 router.post('/create/:restaurantId', authUser, authAdmin, upload.single('image'), createMenuItem)
-router.get('/all-items/:restaurantId', authUser, getMenuItems)
+router.get('/all-items/:restaurantId', getMenuItems)
 router.get('/:id', authUser, menuItemById)
 router.put('/:id', authUser, authAdmin, upload.single('image'), updateMenuItem)
 router.delete('/:id', authUser, authAdmin, deleteMenuItem)
